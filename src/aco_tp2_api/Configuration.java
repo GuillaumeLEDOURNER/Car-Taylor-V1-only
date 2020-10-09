@@ -26,8 +26,17 @@ public interface Configuration {
      */
     Set<PartType> getSelectedParts();
 
+    /**
+     * Ajoute le PartType chosenPart a l'ensemble selectedParts
+     * @param chosenPart le PartType a ajouter
+     */
     void selectPart(PartType chosenPart);
 
+    /**
+     * Retourne le PartType choisi pour une categorie category
+     * @param category La categorie dont on veut avoir le PartType
+     * @return Le PartType choisi pour la categorie category
+     */
     PartType getSelectionForCategory(Category category);
 
     void unselectPartType(Category categoryToClear);
