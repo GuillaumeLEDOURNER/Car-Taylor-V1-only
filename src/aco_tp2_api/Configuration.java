@@ -1,6 +1,5 @@
 package aco_tp2_api;
 
-
 import java.util.Set;
 
 public interface Configuration {

@@ -6,6 +6,9 @@ import aco_tp2_api.Category;
 import aco_tp2_api.Configuration;
 import aco_tp2_api.PartType;
 
+/**
+ * @author Elodie Le Gal
+ */
 public class ConfigurationImpl implements Configuration {
 
 	@Override
