@@ -17,8 +17,16 @@ public interface Configurator {
      */
     Set<PartType> getVariants(Category category);
 
+    /**
+     * Retourne la configuration actuelle
+     * @return la configuration actuelle
+     */
     Configuration getConfiguration();
 
+    /**
+     * Retourne le compatibilityChecker
+     * @return le compatibilityChecker
+     */
     CompatibilityChecker getCompatibilityChecker();
 
 }
