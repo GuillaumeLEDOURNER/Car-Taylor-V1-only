@@ -39,8 +39,15 @@ public interface Configuration {
      */
     PartType getSelectionForCategory(Category category);
 
+    /**
+     * Deselectionne le PartType pour la categorie category
+     * @param categoryToClear la categorie pour laquelle on supprime le PartType
+     */
     void unselectPartType(Category categoryToClear);
 
+    /**
+     * Remise a zero de la configuration
+     */
     void clear();
 
 }
