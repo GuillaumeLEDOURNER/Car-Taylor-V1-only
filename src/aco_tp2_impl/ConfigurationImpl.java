@@ -9,6 +9,10 @@ import aco_tp2_api.PartType;
 public class ConfigurationImpl implements Configuration {
 	
 	Set <PartType> conf;
+	
+	public ConfigurationImpl() {
+		this.conf = new HashSet<>();
+	}
 
 	@Override
 	public boolean isValid() {
