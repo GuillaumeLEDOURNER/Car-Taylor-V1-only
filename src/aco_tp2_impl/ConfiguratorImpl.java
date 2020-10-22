@@ -10,9 +10,9 @@ import aco_tp2_api.PartType;
 
 public class ConfiguratorImpl implements Configurator {
 	
-	HashMap <Category,Set<PartType>> map;
-	ConfigurationImpl conf;
-	CompatibilityManagerImpl compMan;
+	private HashMap <Category,Set<PartType>> map;
+	private ConfigurationImpl conf;
+	private CompatibilityManagerImpl compMan;
 	
 	public ConfiguratorImpl() {
 		conf = new ConfigurationImpl();
