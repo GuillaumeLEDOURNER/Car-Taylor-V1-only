@@ -5,8 +5,8 @@ import aco_tp2_api.PartType;
 
 public class PartTypeImpl implements PartType {
 
-	String name;
-	Category cat;
+	private String name;
+	private Category cat;
 	
 	public PartTypeImpl(String n, Category c) {
 		this.name = n;
