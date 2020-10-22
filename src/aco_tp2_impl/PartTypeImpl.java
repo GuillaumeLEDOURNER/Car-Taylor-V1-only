@@ -6,9 +6,11 @@ import aco_tp2_api.PartType;
 public class PartTypeImpl implements PartType {
 
 	String name;
+	Category cat;
 	
-	public PartTypeImpl(String n) {
+	public PartTypeImpl(String n, Category c) {
 		this.name = n;
+		this.cat = c;
 	}
 	
 	@Override
@@ -18,8 +20,7 @@ public class PartTypeImpl implements PartType {
 
 	@Override
 	public Category getCategory() {
-		// TODO Auto-generated method stub
-		return null;
+		return cat;
 	}
 
 }
