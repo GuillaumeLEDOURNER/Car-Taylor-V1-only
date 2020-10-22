@@ -6,6 +6,7 @@ public class CategoryImpl implements Category {
 
 	@Override
 	public String getName() {
+		//n'importe quoi
 		// TODO Auto-generated method stub
 		return null;
 	}
