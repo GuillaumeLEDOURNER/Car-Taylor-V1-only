@@ -44,7 +44,12 @@ public class ConfigurationImpl implements Configuration {
 		for (PartType p : conf) {
 			setCatConf.add(p.getCategory());
 		}
-		return setCatConf.equals(setCat);
+		for (Category c : setCat) {
+			if (cg.findByNameCat(setCatConf,c.getName()) == null) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@Override

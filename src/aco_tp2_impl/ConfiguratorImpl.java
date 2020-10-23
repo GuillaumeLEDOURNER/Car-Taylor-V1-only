@@ -45,7 +45,7 @@ public class ConfiguratorImpl implements Configurator {
 		map = new HashMap<>();
 		
 		//Creation des Category
-		Category engine = new CategoryImpl("Engine");
+		Category engine = new CategoryImpl("engine");
 		Category trans = new CategoryImpl("trans");
 		Category ext = new CategoryImpl("ext");
 		Category inte = new CategoryImpl("interieur");
@@ -110,6 +110,25 @@ public class ConfiguratorImpl implements Configurator {
 		map.put(trans,transs);
 		map.put(ext,exts);
 		map.put(inte,ints);
+	}
+	
+	public Category findByNameCat(Set<Category> s,String name) {
+		for (Category c : s) {
+			if (c.getName().equals(name)) {
+				return c;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public PartType findByNamePart(Set<PartType> s, String name) {
+		for (PartType c : s) {
+			if (c.getName().equals(name)) {
+				return c;
+			}
+		}
+		return null;
 	}
 
 }

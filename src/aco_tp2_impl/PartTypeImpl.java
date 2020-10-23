@@ -23,4 +23,11 @@ public class PartTypeImpl implements PartType {
 		return cat;
 	}
 
+	@Override
+	public String toString() {
+		return "name=" + name + ", "+ cat ;
+	}
+	
+	
+
 }

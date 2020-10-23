@@ -4,6 +4,11 @@ import aco_tp2_api.Category;
 
 public class CategoryImpl implements Category {
 	
+	@Override
+	public String toString() {
+		return "cat=" + name;
+	}
+
 	private String name;
 	
 	public CategoryImpl(String n) {

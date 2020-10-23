@@ -28,5 +28,15 @@ public interface Configurator {
      * @return le compatibilityChecker
      */
     CompatibilityChecker getCompatibilityChecker();
+    
+    /**
+     * 
+     * @param s
+     * @param name
+     * @return
+     */
+    Category findByNameCat(Set<Category> s,String name);
+    
+    PartType findByNamePart(Set<PartType> s,String name);
 
 }

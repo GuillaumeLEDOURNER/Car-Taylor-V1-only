@@ -1,0 +1,13 @@
+$git branch
+pour connaitre la branche
+
+$git branch v2
+pour creer la branche v2
+
+$git checkout v2
+pour aller sur la branche v2
+
+OU 
+
+$git switch v2
+changer aller sur la branche v2 (à partir de git 2.0)
