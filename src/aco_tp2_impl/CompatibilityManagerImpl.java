@@ -26,11 +26,11 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 	public Set<PartType> getRequirements(PartType reference) {
 		Set<PartType> concernedPart = require.get(reference);
 		getRequirementsAux(concernedPart);
-	} // faire une auxiliaire qui fait la boucle
+	 // faire une auxiliaire qui fait la boucle
 		for(PartType p : concernedPart) {
 			if(concernedPart.addAll(require.get(p))) {
 				
-				getRequirements(require.get(p)));
+				getRequirements(require.get(p));
 			}
 		}
 		
@@ -39,6 +39,14 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 		
 	}
 
+	
+	public Set<PartType> getRequirementsAux(Set<PartType> concerned){
+		for (PartType p : concerned) {
+			if(concernedPart.addAll(require.get(p))) {
+				getRequirementAux(require.get(p))
+			}
+		}
+	}
 	@Override
 	public void addIncompatibilities(PartType reference, Set<PartType> target) {
 		Set<PartType> ancien = incomp.get(reference);
@@ -83,4 +91,5 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 
 	
 
+}}}
 }
