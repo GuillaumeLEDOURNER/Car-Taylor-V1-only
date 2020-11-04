@@ -18,41 +18,24 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 	@Override
 	public Set<PartType> getIncompatibilities(PartType reference) {
 		return incomp.get(reference);
-
-
 	}
 
 	@Override
 	public Set<PartType> getRequirements(PartType reference) {
+		Objects.requireNonNull(reference,"L'objet ne doit pas etre null");
 		Set<PartType> concernedPart = require.get(reference);
-		getRequirementsAux(concernedPart);
-	 // faire une auxiliaire qui fait la boucle
-		for(PartType p : concernedPart) {
-			if(concernedPart.addAll(require.get(p))) {
-				
-				getRequirements(require.get(p));
-			}
+		if (concernedPart == null) {
+			return Collections.emptySet();
 		}
-		
-		
-		return null;
-		
+		return concernedPart;
 	}
-
 	
-	public Set<PartType> getRequirementsAux(Set<PartType> concerned){
-		for (PartType p : concerned) {
-			if(concernedPart.addAll(require.get(p))) {
-				getRequirementAux(require.get(p))
-			}
-		}
-	}
+	
 	@Override
 	public void addIncompatibilities(PartType reference, Set<PartType> target) {
 		Set<PartType> ancien = incomp.get(reference);
 		ancien.addAll(target);
 		incomp.put(reference, ancien);
-		
 		for (PartType p : ancien) {
 			addIncompatibilities(reference,incomp.get(p));
 		}		
@@ -88,8 +71,4 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 		}
 		require.put(reference,concernedPart);
 	}
-
-	
-
-}}}
 }
