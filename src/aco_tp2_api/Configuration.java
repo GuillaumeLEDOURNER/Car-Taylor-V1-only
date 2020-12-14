@@ -24,7 +24,7 @@ public interface Configuration {
      * Retourne l'ensemble non-modifiable des PartType selectionnes
      * @return l'ensemble non-modifiable des PartType selectionnes
      */
-    Set<PartType> getSelectedParts();
+    public Set<Part> getSelectedParts();
 
     /**
      * Ajoute le PartType chosenPart a l'ensemble selectedParts
@@ -37,7 +37,7 @@ public interface Configuration {
      * @param category La categorie dont on veut avoir le PartType
      * @return Le PartType choisi pour la categorie category
      */
-    PartType getSelectionForCategory(Category category);
+    public Optional<Part> getSelectionForCategory(Category category);
 
     /**
      * Deselectionne le PartType pour la categorie category
