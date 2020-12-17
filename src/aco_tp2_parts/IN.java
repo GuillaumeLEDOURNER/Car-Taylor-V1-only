@@ -1,12 +1,12 @@
-package fr.istic.Elmahjoub_Simpara.cartaylor.Model.Interior;
+package aco_tp2_parts;
 
-import fr.istic.Elmahjoub_Simpara.cartaylor.Model.TypeInterior;
 
 public class IN extends Interior {
 
 	public IN() {
-		settypeInterior(TypeInterior.standard.name());
+		settypeInterior(InteriorType.Standart.name());
 	}
+	
 
 
 }

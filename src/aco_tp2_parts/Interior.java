@@ -1,11 +1,10 @@
-package fr.istic.Elmahjoub_Simpara.cartaylor.Model.Interior;
+package aco_tp2_parts;
 
-import java.util.HashSet;
+import java.util.*;
 import java.util.Set;
+import aco_tp2_api.*;
+import aco_tp2_impl.*;
 
-import fr.istic.Elmahjoub_Simpara.cartaylor.Interface.Visitor;
-import fr.istic.Elmahjoub_Simpara.cartaylor.Model.TypeInterior;
-import fr.istic.Elmahjoub_Simpara.cartaylor.implementation.PartImpl;
 
 public class Interior extends PartImpl {
 
@@ -13,7 +12,7 @@ public class Interior extends PartImpl {
 	// les proprietes qui sont encommun entre tous les part 
 	// de type interior
 	
-	private TypeInterior  typeInterior = TypeInterior.standard;
+	private InteriorType  typeInterior = InteriorType.Standart;
 
 	public String gettypeInterior() {
 		return typeInterior.name();
@@ -21,44 +20,43 @@ public class Interior extends PartImpl {
 
 
 	public void settypeInterior(String type) {
-		this.typeInterior=TypeInterior.valueOf(type);
+		this.typeInterior=InteriorType.valueOf(type);
 	}
 
 
 	public Interior() {
 		Set<String> possibleValues ;
 		possibleValues =new HashSet<String>();
-		possibleValues.add(TypeInterior.High_end.name());
-		possibleValues.add(TypeInterior.sport_finsih.name());
-		possibleValues.add(TypeInterior.standard.name());
+		possibleValues.add(InteriorType.Haute_Gamme.name());
+		possibleValues.add(InteriorType.Sport.name());
+		possibleValues.add(InteriorType.Standart.name());
 		
 		addProperty("typeInterior", ()->gettypeInterior(), (c)->settypeInterior(c), possibleValues);
 	}
 	
-	@Override
-	public Double getPrice() {
+	public int getPrice() {
 		
 		switch (typeInterior) {
 		
-		case standard: return 20000.0;
+		case Standart: return 399;
 			
-		case High_end: return 500000.0;
+		case Haute_Gamme: return 650;
 	
-		case sport_finsih:return 700000.0;
+		case Sport:return 535;
 
-		default: return 0.00;
+		default: return 0;
 			
 		}
 	}
 	
-	@Override
+	
 	public void accept(Visitor v) {
 		v.visitInterior(this);
 	}
 	
-	@Override
+	
 	public String getDescription() {
-		return "Notre interior est parmi les plus puissant � travers le monde";
+		return "Nos revêtements intérieurs sont cousus main";
 	}
 
 }
