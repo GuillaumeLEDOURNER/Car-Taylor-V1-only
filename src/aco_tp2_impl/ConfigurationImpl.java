@@ -1,6 +1,7 @@
 package aco_tp2_impl;
 
 import java.util.*;
+import aco_tp2_api.*;
 
 import aco_tp2_api.Category;
 import aco_tp2_api.Configuration;
@@ -8,7 +9,7 @@ import aco_tp2_api.PartType;
 
 public class ConfigurationImpl implements Configuration {
 	
-	Set <PartType> conf;
+	Set <Part> conf;
 	
 	public ConfigurationImpl() {
 		this.conf = new HashSet<>();
@@ -17,31 +18,37 @@ public class ConfigurationImpl implements Configuration {
 	@Override
 	public boolean isValid() {
 		Set <PartType> obligatoire;
-		CompatibilityManagerImpl cm = new CompatibilityManagerImpl();
-		for (PartType p : conf) {
-			obligatoire = cm.getRequirements(p);
-			if(!conf.containsAll(obligatoire)) {
-				return false;
-			}
-		}
 		Set <PartType> interdit;
-		for(PartType p : conf) {
-			interdit = cm.getIncompatibilities(p);
-			for (PartType p2 : interdit) {
-				if (conf.contains(p2)){
+		
+		CompatibilityManagerImpl cm = new CompatibilityManagerImpl();
+		Set <PartType> selectedPartType = new HashSet<>();
+		for (Part pa : conf) { 
+		obligatoire = cm.getRequirements(pa.getType());
+		interdit = cm.getIncompatibilities(pa.getType());
+	
+				getSelectedParts().forEach( (p) -> selectedPartType.add(p.getType()));
+			if(!selectedPartType.containsAll(obligatoire)) {
+				return false;
+			
+			} 
+		
+		
+		}for (PartType p2 : interdit) {
+			
+				if (selectedPartType.contains(p2)){
 					return false;
 				}
 			}
-		}
-		return true;
-	}
+	
+		return true;}
+	
 
 	@Override
 	public boolean isComplete() {
 		ConfiguratorImpl cg = new ConfiguratorImpl();
 		Set<Category> setCat = cg.getCategories();
 		Set<Category> setCatConf = new HashSet<>();
-		for (PartType p : conf) {
+		for (Part p : conf) {
 			setCatConf.add(p.getCategory());
 		}
 		for (Category c : setCat) {
@@ -53,8 +60,8 @@ public class ConfigurationImpl implements Configuration {
 	}
 
 	@Override
-	public Set<PartType> getSelectedParts() {
-		Set<PartType> copy = conf;
+	public Set<Part> getSelectedParts() {
+		Set<Part> copy = conf;
 		return copy;
 	}
 
