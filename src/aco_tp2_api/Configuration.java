@@ -1,5 +1,6 @@
 package aco_tp2_api;
 
+import java.util.Optional;
 import java.util.Set;
 
 public interface Configuration {
@@ -49,5 +50,7 @@ public interface Configuration {
      * Remise a zero de la configuration
      */
     void clear();
+    
+    String printDescription();
 
 }
