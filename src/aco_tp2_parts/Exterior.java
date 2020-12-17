@@ -24,7 +24,7 @@ public class Exterior extends PartImpl {
 		valeursPossibles.add(Couleur.Jaune.name());
 		valeursPossibles.add(Couleur.Or.name());
 		valeursPossibles.add(Couleur.Argent.name());
-		addProperty("color", ()->getCouleur(), (c)->setCouleur(c), valeursPossibles);
+		addProperty("couleur", ()->getCouleur(), (c)->setCouleur(c), valeursPossibles);
 	}
 	
 	public String getCouleur() {
