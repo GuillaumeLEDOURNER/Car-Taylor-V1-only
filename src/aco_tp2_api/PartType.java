@@ -1,4 +1,5 @@
-import aco_tp2_api.*;
+package aco_tp2_api;
+
 
 public interface PartType {
 

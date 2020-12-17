@@ -1,3 +1,5 @@
+package aco_tp2_api;
+
 import java.util.*;
 public interface PropertyManager {
 	/**

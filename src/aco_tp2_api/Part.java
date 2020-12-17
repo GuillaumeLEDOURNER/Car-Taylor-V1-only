@@ -1,4 +1,4 @@
-import aco_tp2_api.*;
+package aco_tp2_api;
 public interface Part extends PropertyManager {
 	default String getName() {
 		return this.getClass().getTypeName();
