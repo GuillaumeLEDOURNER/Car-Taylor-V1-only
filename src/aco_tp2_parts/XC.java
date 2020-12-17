@@ -1,5 +1,8 @@
 package aco_tp2_parts;
 
-public class XC {
+public class XC extends Exterior {
+	public XC() {
+		setCouleur("Noir");
+	}
 
 }
