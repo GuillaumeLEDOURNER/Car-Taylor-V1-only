@@ -31,6 +31,6 @@ public interface Visitor {
 		 * @param interior
 		 */
 		public void visitExterior(Exterior part);
-	}
+	
 
 }
