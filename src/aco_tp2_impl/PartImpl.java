@@ -1,3 +1,10 @@
+package aco_tp2_impl;
+
+import aco_tp2_api.*;
+
+import java.util.*;
+import java.util.function.*;
+
 public class PartImpl implements Part {
 
 	private PartType type;
@@ -36,7 +43,9 @@ public class PartImpl implements Part {
 		}
 		return Optional.empty();
 	}
-
+/**
+ * Modifie une propriété existante
+ */
 	@Override
 	public void setProperty(String propertyName, String propertyValue) {
 		Objects.requireNonNull(propertyName);
@@ -56,6 +65,16 @@ public class PartImpl implements Part {
 		return Collections.emptySet();
 	}
 
-public class PropertyManagerImpl {
 
+	@Override
+	public Category getCategory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PartType getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

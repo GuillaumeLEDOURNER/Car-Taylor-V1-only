@@ -1,3 +1,4 @@
+import java.util.*;
 public interface PropertyManager {
 	/**
 	 * Returns an immutable set of the property names supported by the property manager.
@@ -38,6 +39,3 @@ public interface PropertyManager {
 }
 
 
-public class PropertyManager {
-
-}
