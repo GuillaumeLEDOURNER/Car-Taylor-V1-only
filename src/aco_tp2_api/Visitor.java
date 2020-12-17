@@ -1,5 +1,5 @@
 package aco_tp2_api;
-
+import aco_tp2_parts.*;
 public interface Visitor {
 
 		/**

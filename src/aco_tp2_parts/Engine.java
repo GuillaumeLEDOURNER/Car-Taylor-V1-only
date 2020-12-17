@@ -1,10 +1,11 @@
 package aco_tp2_parts;
 import aco_tp2_impl.*;
+import aco_tp2_api.*;
 
 import java.util.*;
 
 public class Engine extends PartImpl{
-	private String power;
+	private String pow;
 	private Carburant carb;
 
 	public Engine() {
@@ -29,7 +30,7 @@ public class Engine extends PartImpl{
 		possibleValues.add("180kw");
 		possibleValues.add("120kw");
 		
-		addProperty("power", ()->getPower(), (c)->setPower(c),  possibleValues);
+		addProperty("pow", ()->getPower(), (c)->setPower(c),  possibleValues);
 	
 	}
 	
@@ -52,33 +53,33 @@ public class Engine extends PartImpl{
 	}
 
  
-	@Override
 	public void accept(Visitor v) {
 		v.visitEngine(this);
 	}
 	
-	@Override
-	public String getDescription() {
-		return "Notre moteur est parmi les plus puissant  travers le monde";
-	}
-
-
 	public String getPower() {
-		return power;
+		return pow;
 	}
 
 	public void setPower(String power) {
-		this.power = power;
+		this.pow = power;
 	}
 
 	public String getCarburant() {
-		return carburant.name();
+		return carb.name();
 	}
 
 	public void setCarburant(String carburant) {
 		
-		this.carburant = Carburant.valueOf(carburant);
+		this.carb = Carburant.valueOf(carburant);
 	}
+
+	public String getDescription() {
+		return "Nos moteurs sont de bonne qualité";
+	}
+
+
+
 
 	
 }
