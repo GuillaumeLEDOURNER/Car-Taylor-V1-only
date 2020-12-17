@@ -17,30 +17,29 @@ public class ConfigurationImpl implements Configuration {
 
 	@Override
 	public boolean isValid() {
-		Set <PartType> obligatoire;
-		Set <PartType> interdit;
-		
+		Set <PartType> obligatoire = new HashSet<>();
+		Set <PartType> interdit = new HashSet<>();
 		CompatibilityManagerImpl cm = new CompatibilityManagerImpl();
 		Set <PartType> selectedPartType = new HashSet<>();
 		for (Part pa : conf) { 
 		obligatoire = cm.getRequirements(pa.getType());
-		interdit = cm.getIncompatibilities(pa.getType());
-	
 				getSelectedParts().forEach( (p) -> selectedPartType.add(p.getType()));
 			if(!selectedPartType.containsAll(obligatoire)) {
 				return false;
 			
 			} 
-		
-		
-		}for (PartType p2 : interdit) {
+			}
+		for (Part pa : conf) { 
+		interdit = cm.getIncompatibilities(pa.getType());
+		}
+			for (PartType p2 : interdit) {
 			
 				if (selectedPartType.contains(p2)){
 					return false;
 				}
 			}
 	
-		return true;}
+			return true;}
 	
 
 	@Override
@@ -67,7 +66,10 @@ public class ConfigurationImpl implements Configuration {
 
 	@Override
 	public void selectPart(PartType chosenPart) {
-		conf.add(chosenPart);
+		Objects.requireNonNull(chosenPart, "l'objet utilisé ne dois pas être nul");
+		unselectPartType(chosenPart.getCategory());
+		PartTypeImpl pt = (PartTypeImpl) chosenPart; 
+		conf.add(pt.newInstance());
 	}
 
 	@Override
