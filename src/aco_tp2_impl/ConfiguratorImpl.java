@@ -18,7 +18,7 @@ public class ConfiguratorImpl implements Configurator {
 		conf = new ConfigurationImpl();
 		compMan = new CompatibilityManagerImpl();
 		
-		initialization();		
+		initialization();	
 	}
 
 	@Override
@@ -41,6 +41,9 @@ public class ConfiguratorImpl implements Configurator {
 		return compMan;
 	}
 	
+	/**
+	 * initialisation des tous les parttype ainsi que de leur requirement et incompatibilities
+	 */
 	private void initialization() {
 		map = new HashMap<>();
 		
@@ -110,6 +113,49 @@ public class ConfiguratorImpl implements Configurator {
 		map.put(trans,transs);
 		map.put(ext,exts);
 		map.put(inte,ints);
+		
+		Set<PartType> req_eh120 = new HashSet<>();
+		req_eh120.add(tc120);
+		compMan.addRequirements(eh120, req_eh120);
+		
+		Set<PartType> incomp_ta5 = new HashSet<>();
+		incomp_ta5.add(eg100);
+		compMan.addIncompatibilities(ta5, incomp_ta5);
+		
+		Set<PartType> incomp_tsf7 = new HashSet<>();
+		incomp_tsf7.add(eg100);
+		incomp_tsf7.add(eg133);
+		incomp_tsf7.add(ed110);
+		compMan.addIncompatibilities(tsf7, incomp_tsf7);
+		
+		Set<PartType> req_tc120 = new HashSet<>();
+		req_tc120.add(eh120);
+		compMan.addRequirements(tc120, req_tc120);
+		
+		Set<PartType> incomp_xc = new HashSet<>();
+		incomp_xc.add(eg210);
+		compMan.addIncompatibilities(xc, incomp_xc);
+		
+		Set<PartType> incomp_xm = new HashSet<>();
+		incomp_xm.add(eg100);
+		compMan.addIncompatibilities(xm, incomp_xm);
+		
+		Set<PartType> incomp_xs = new HashSet<>();
+		incomp_xs.add(eg100);
+		compMan.addIncompatibilities(xs, incomp_xs);
+		
+		Set<PartType> req_xs = new HashSet<>();
+		req_xs.add(is);
+		compMan.addRequirements(xs, req_xs);
+		
+		Set<PartType> incomp_is = new HashSet<>();
+		incomp_is.add(eg100);
+		incomp_is.add(tm5);
+		compMan.addIncompatibilities(is, incomp_is);
+		
+		Set<PartType> req_is = new HashSet<>();
+		req_is.add(xs);
+		compMan.addRequirements(is, req_is);
 	}
 	
 	public Category findByNameCat(Set<Category> s,String name) {
