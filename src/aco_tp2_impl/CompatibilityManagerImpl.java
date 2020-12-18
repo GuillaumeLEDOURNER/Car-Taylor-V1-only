@@ -69,6 +69,11 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 	@Override
 	public void addRequirements(PartType reference, Set<PartType> target) {
 		target.remove(reference); //evite de mettre un requierement entre un element et lui-meme
+		for(PartType p : target) {
+			if (p.getCategory().equals(reference.getCategory())) {
+				target.remove(p);
+			}
+		}
 		if (target.size() > 0) {
 			require.put(reference,target);
 		}
