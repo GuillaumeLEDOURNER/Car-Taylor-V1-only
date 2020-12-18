@@ -77,4 +77,8 @@ public class PartImpl implements Part {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public String printDescription() {
+		
+	}
 }

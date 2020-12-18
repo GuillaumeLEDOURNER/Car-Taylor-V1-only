@@ -75,7 +75,7 @@ public class Engine extends PartImpl{
 	}
 
 	public String getDescription() {
-		return "Nos moteurs sont de bonne qualité";
+		return "Nos moteurs sont de bonne facture";
 	}
 
 
