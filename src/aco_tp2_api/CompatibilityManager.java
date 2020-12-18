@@ -9,7 +9,7 @@ public interface CompatibilityManager extends CompatibilityChecker {
 	 * @param reference le PartType auquel on veut ajouter l'incompatibilité
 	 * @param target l'ensemble de PartType auquel on veut ajouter l'incompatibilité
 	 */
-    void addIncompatibilities(PartType reference, Set<PartType> target);
+    void addIncompatibilities(PartType reference, Set<PartType> target) throws Exception;
 
     /**
      * Supprime l'incompatibilité entre le PartType reference et le PartType target

@@ -2,6 +2,7 @@ package aco_tp2_impl;
 
 import aco_tp2_api.Category;
 
+
 public class CategoryImpl implements Category {
 	
 	@Override
@@ -20,4 +21,11 @@ public class CategoryImpl implements Category {
 		return this.name;
 	}
 
+	@Override
+	public boolean equals(Category c) {
+		return this.name.equals(c.getName());
+	}
+
+	
+	
 }

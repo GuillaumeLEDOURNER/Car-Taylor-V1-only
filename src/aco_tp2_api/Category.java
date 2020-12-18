@@ -8,5 +8,7 @@ package aco_tp2_api;
 public interface Category {
 
     String getName();
+    
+    boolean equals(Category c);
 
 }
