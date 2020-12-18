@@ -24,11 +24,16 @@ public class PartTypeImpl implements PartType {
 	}
 	@Override
 	public boolean equals(PartType p) {
-		if ((this.cat.equals(p.getCategory()))&&(this.name.equals(p.getName()))) {
-			return true;
-	}else {
-		return false;
-	}
+	    if (p == this) { 
+	        return true; 
+	    } 
+	    if (!(p instanceof PartType)) { 
+	        return false; 
+	    } 
+
+	    PartType c = (PartType) p; 
+
+	    return (this.getName()==c.getName() && this.cat.getName()==c.getCategory().getName());
 	}
 
 	

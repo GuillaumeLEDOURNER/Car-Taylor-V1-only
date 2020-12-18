@@ -33,21 +33,20 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 	
 	@Override
 	public void addIncompatibilities(PartType reference, Set<PartType> target) {
-		if((reference.equals(null))||((target.equals(null)))) {
-		target.remove(reference); //evite de mettre un incompatibilities entre un element et lui-meme
-		if (target.size() > 0 ) {
-			Set<PartType> ancien = incomp.get(reference);
-			if(ancien == (null)) { ancien = new HashSet<>();}
-			ancien.addAll(target);
-			incomp.put(reference, ancien);
-			for (PartType p : ancien) {
-				if(!(p.getCategory().equals(reference.getCategory())||(p.equals(reference)))) {
-					addIncompatibilities(reference,incomp.get(p));
+		Objects.requireNonNull(reference);
+		Objects.requireNonNull(target);
+		for(PartType p : target) {
+			if(!reference.equals(p)){
+					if(!reference.getCategory().equals(p.getCategory())) {
+						incomp.get(reference).add(p);	
+					}
+					Set<PartType> n = incomp.get(p);
+					n.add(reference);
+					incomp.put(reference, n);
+			
 				}
 			}
 		}
-	}
-}
 	
 
 

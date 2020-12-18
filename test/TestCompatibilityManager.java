@@ -38,6 +38,7 @@ public class TestCompatibilityManager {
 		PartType tm8 = new PartTypeImpl("tm8", trans);
 		Set<PartType> testincomp=new HashSet<>();
 		testincomp.add(tm8);
+		
 		manager.addIncompatibilities(eg100, testincomp);
 		
 		manager.removeIncompatibility(eg100, tm8);
