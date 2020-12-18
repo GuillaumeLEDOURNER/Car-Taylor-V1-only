@@ -40,7 +40,7 @@ public class TestCompatibilityManager {
 		testincomp.add(tm8);
 		manager.addIncompatibilities(eg100, testincomp);
 		
-		manager.removeRequirement(eg100, tm8);
+		manager.removeIncompatibility(eg100, tm8);
 		assertTrue(manager.getIncompatibilities(eg100).isEmpty());
 		
 	}

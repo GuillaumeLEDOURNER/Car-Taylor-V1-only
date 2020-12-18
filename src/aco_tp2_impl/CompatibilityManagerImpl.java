@@ -1,7 +1,6 @@
 package aco_tp2_impl;
 
 import java.util.*;
-import java.util.Set;
 
 import aco_tp2_api.CompatibilityManager;
 import aco_tp2_api.PartType;
@@ -37,8 +36,9 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 		Objects.requireNonNull(reference, "L'objet ne doit pas être null");
 		Objects.requireNonNull(target, "l'objet ne doit pas être nul");
 		target.remove(reference); //evite de mettre un incompatibilities entre un element et lui-meme
-		if (target.size() > 0) {
+		if (target.size() > 0 ) {
 			Set<PartType> ancien = incomp.get(reference);
+			if(ancien == (null)) { ancien = new HashSet<>();}
 			ancien.addAll(target);
 			incomp.put(reference, ancien);
 			for (PartType p : ancien) {
