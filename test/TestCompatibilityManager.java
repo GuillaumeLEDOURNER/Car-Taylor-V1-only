@@ -31,14 +31,15 @@ public class TestCompatibilityManager {
 	}
 	@Test
 	@DisplayName("removeIncompatibilities")
-	void testRemoveReq() {
+	void testRemoveIncomp() {
 		CategoryImpl engine = new CategoryImpl("Engine");
 		CategoryImpl trans = new CategoryImpl("Transmission");
 		PartType eg100 = new PartTypeImpl("eg100", engine);
 		PartType tm8 = new PartTypeImpl("tm8", trans);
-		Set<PartType> testreq=new HashSet<>();
-		testreq.add(tm8);
-		manager.addIncompatibilities(eg100, testreq);
+		Set<PartType> testincomp=new HashSet<>();
+		testincomp.add(tm8);
+		manager.addIncompatibilities(eg100, testincomp);
+		
 		manager.removeRequirement(eg100, tm8);
 		assertTrue(manager.getIncompatibilities(eg100).isEmpty());
 		
@@ -86,11 +87,15 @@ public class TestCompatibilityManager {
 	void testRemoveReq() {
 		CategoryImpl engine = new CategoryImpl("Engine");
 		CategoryImpl trans = new CategoryImpl("Transmission");
-		PartType eg100 = new PartTypeImpl("eg100", engine);
+		PartTypeImpl eg100 = new PartTypeImpl("eg100", engine);
 		PartType tm8 = new PartTypeImpl("tm8", trans);
+		PartType tm5 = new PartTypeImpl("tm5", trans);
 		Set<PartType> testreq=new HashSet<>();
 		testreq.add(tm8);
 		manager.addRequirements(eg100, testreq);
+		assertFalse(manager.getRequirements(eg100).isEmpty());
+		manager.removeRequirement(eg100, tm5);
+		assertFalse(manager.getRequirements(eg100).isEmpty());
 		manager.removeRequirement(eg100, tm8);
 		assertTrue(manager.getRequirements(eg100).isEmpty());
 		
