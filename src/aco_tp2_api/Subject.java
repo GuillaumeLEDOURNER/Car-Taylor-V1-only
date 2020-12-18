@@ -7,25 +7,25 @@ package aco_tp2_api;
 public interface Subject<V> {
 	
 	/**
-	 * ajoute le observer depuis la liste des observateurs du sujects
+	 * ajoute un nouvel observer depuis la liste des observateurs du sujects
 	 * 
 	 * @param o
 	 */
 	public void attach(Observer<V> o);
 	/**
-	 *  supprimer le observer depuis la liste des observateurs du sujects
+	 *  supprimer l'observer depuis la liste des observateurs du sujects
 	 * @param o
 	 */
 	public void detach(Observer<V> o);
 	/**
-	 *  tester si un observer est deja abonne au sujet 
+	 *  tester si un observer est abonne au sujet 
 	 * @param observer
-	 * @return
+	 * @return un booleen
 	 */
 	public boolean isAttached(Observer<V> observer);
 	/**
 	 *  recuperer la nouvelle configuration
-	 * @return
+	 * @return la valeur de la configuration 
 	 */
 	public V getValue();
 }
