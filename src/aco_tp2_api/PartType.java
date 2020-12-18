@@ -13,4 +13,9 @@ public interface PartType {
      * @return la categorie du PartType
      */
     Category getCategory();
+
+	/**
+	 * Retourne vrai si les deux part sont égaux
+	 */
+	boolean equals(PartType p);
 }

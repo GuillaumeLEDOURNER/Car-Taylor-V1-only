@@ -22,12 +22,19 @@ public class PartTypeImpl implements PartType {
 	public Category getCategory() {
 		return cat;
 	}
+	@Override
+	public boolean equals(PartType p) {
+		if ((this.cat.equals(p.getCategory()))&&(this.name.equals(p.getName()))) {
+			return true;
+	}else {
+		return false;
+	}
+	}
 
+	
 	@Override
 	public String toString() {
 		return "name=" + name + ", "+ cat ;
 	}
 	
-	
-
 }

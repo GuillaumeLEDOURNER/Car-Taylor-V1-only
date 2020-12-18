@@ -6,6 +6,7 @@ import java.util.Set;
 import aco_tp2_api.CompatibilityManager;
 import aco_tp2_api.PartType;
 
+
 public class CompatibilityManagerImpl implements CompatibilityManager {
 	
 	Map<PartType,Set<PartType>> incomp;
@@ -33,12 +34,17 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 	
 	@Override
 	public void addIncompatibilities(PartType reference, Set<PartType> target) {
+		Objects.requireNonNull(reference, "L'objet ne doit pas être null");
+		Objects.requireNonNull(target, "l'objet ne doit pas être nul");
+		
+		if(target.contains(reference) == false) {
 		Set<PartType> ancien = incomp.get(reference);
 		ancien.addAll(target);
 		incomp.put(reference, ancien);
 		for (PartType p : ancien) {
 			addIncompatibilities(reference,incomp.get(p));
 		}		
+	}
 	}
 
 	@Override
