@@ -4,13 +4,12 @@ public interface Part extends PropertyManager {
 		return this.getClass().getTypeName();
 	};
 	/**
-	 * Retourne la catégorie du Part
 	 * @return la catégorie du Part
 	 */
 	Category getCategory();
 	
 	/**
-	 * Retourne le type de la Part
+	 * @return le type de la Part
 	 */
 	PartType getType();
 }

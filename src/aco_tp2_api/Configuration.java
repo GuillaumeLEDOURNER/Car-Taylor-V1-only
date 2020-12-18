@@ -51,6 +51,19 @@ public interface Configuration {
      */
     void clear();
     
+    /**
+     * @return une description de la configuration si celle ci est valide et complete
+     */
+     
+     
+     
     String printDescription();
+    
+    /**
+     * @return le prix de la configuration si celle ci est valide et complete
+     */
+     
+    int getPrix();
+    
 
 }
