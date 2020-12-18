@@ -42,8 +42,10 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 			ancien.addAll(target);
 			incomp.put(reference, ancien);
 			for (PartType p : ancien) {
+				if(p.getCategory() != reference.getCategory()) {
 				addIncompatibilities(reference,incomp.get(p));
-			}	
+			}
+			}
 		}
 	}
 
