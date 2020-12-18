@@ -111,7 +111,7 @@ public class TestCompatibilityManager {
 		testreq.add(eg133);
 		assertTrue(manager.getRequirements(eg100).isEmpty(),"La liste des requirements de eg100 est ici vide");
 		manager.addRequirements(eg100, testreq);
-		assertEquals(0,manager.getRequirements(eg100).size());
+		assertTrue(manager.getRequirements(eg100).isEmpty(),"La liste des requirements de eg100 est ici vide");
 		testreq.remove(eg133);
 		testreq.add(eg100);
 		manager.addRequirements(eg100, testreq);
