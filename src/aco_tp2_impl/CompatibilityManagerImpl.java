@@ -33,12 +33,15 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 	
 	@Override
 	public void addIncompatibilities(PartType reference, Set<PartType> target) {
-		Set<PartType> ancien = incomp.get(reference);
-		ancien.addAll(target);
-		incomp.put(reference, ancien);
-		for (PartType p : ancien) {
-			addIncompatibilities(reference,incomp.get(p));
-		}		
+		target.remove(reference); //evite de mettre un incompatibilities entre un element et lui-meme
+		if (target.size() > 0) {
+			Set<PartType> ancien = incomp.get(reference);
+			ancien.addAll(target);
+			incomp.put(reference, ancien);
+			for (PartType p : ancien) {
+				addIncompatibilities(reference,incomp.get(p));
+			}	
+		}
 	}
 
 	@Override
@@ -58,7 +61,9 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 	@Override
 	public void addRequirements(PartType reference, Set<PartType> target) {
 		target.remove(reference); //evite de mettre un requierement entre un element et lui-meme
-		require.put(reference,target);
+		if (target.size() > 0) {
+			require.put(reference,target);
+		}
 	}
 
 	@Override
