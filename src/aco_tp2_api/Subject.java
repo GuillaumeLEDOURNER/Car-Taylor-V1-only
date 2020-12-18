@@ -2,7 +2,7 @@ package aco_tp2_api;
 
 
 /**
- * @author elmahjoub , Simpara
+ * @author LE DOURNER_LE GAL
  */
 public interface Subject<V> {
 	
