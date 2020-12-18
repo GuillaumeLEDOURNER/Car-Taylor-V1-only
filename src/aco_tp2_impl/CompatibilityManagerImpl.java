@@ -33,8 +33,7 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 	
 	@Override
 	public void addIncompatibilities(PartType reference, Set<PartType> target) {
-		Objects.requireNonNull(reference, "L'objet ne doit pas être null");
-		Objects.requireNonNull(target, "l'objet ne doit pas être nul");
+		if((reference.equals(null))||((target.equals(null)))) {
 		target.remove(reference); //evite de mettre un incompatibilities entre un element et lui-meme
 		if (target.size() > 0 ) {
 			Set<PartType> ancien = incomp.get(reference);
@@ -45,10 +44,10 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
 				if(!(p.getCategory().equals(reference.getCategory())||(p.equals(reference)))) {
 					addIncompatibilities(reference,incomp.get(p));
 				}
-				
-			}
 			}
 		}
+	}
+}
 	
 
 
